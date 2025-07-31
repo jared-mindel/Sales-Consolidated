@@ -20,10 +20,10 @@ CREATE OR ALTER VIEW SalesByTerritory AS (
 		sp.[SalesQuota], 
 		sp.[Bonus]
 
-	FROM Sales.SalesTerritory st
+	FROM Sales.SalesOrderHeader soh
 
-	JOIN Sales.SalesOrderHeader soh 
-		ON soh.TerritoryID = st.TerritoryID
+	JOIN Sales.SalesTerritory st 
+		ON st.TerritoryID = soh.TerritoryID
 
 	LEFT JOIN Sales.SalesOrderHeaderSalesReason sohsr
 		ON sohsr.SalesOrderID = soh.SalesOrderID
